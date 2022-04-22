@@ -1,8 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function AddProduct() {
+    let nevigate=useNavigate()
+    if(!window.localStorage.getItem('token')){
+        useEffect(()=>{
+        window.alert("You are not Autherized For this")
+        nevigate('/')
+        },[])
+      }
     const [product_name, setProductName] = useState("");
     const [product_description, setProductDescription] = useState("");
     const [product_price, setProductPrice] = useState("");
@@ -20,7 +27,11 @@ export default function AddProduct() {
         formData.append('product_photo', product_photo)
         formData.append('product_category', product_category)
 
-        await Axios.post('http://localhost:3009/addProduct', formData).then(() => {
+        await Axios.post('http://localhost:3009/addProduct', formData,{
+            headers: {
+                token:window.localStorage.getItem('token')
+            }
+        }).then(() => {
             alert("Successfully Inserted")
         }).catch(error => window.alert("Please Enter Valid Data"))
 

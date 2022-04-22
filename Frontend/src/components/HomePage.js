@@ -19,29 +19,29 @@ const HomePage = () => {
   }
   return (
     <>
-      <section className="slider_section long_section">
-        <div id="customCarousel" className="carousel slide" data-ride="carousel">
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <div className="container ">
-                <div className="row">
-                  <div className="col-md-5">
-                    <div className="detail-box">
+     {/*  <section classNameNameName="slider_section long_section">
+        <div id="customCarousel" classNameName="carousel slide" data-ride="carousel">
+          <div classNameName="carousel-inner">
+            <div classNameName="carousel-item active">
+              <div classNameName="container ">
+                <div classNameName="row">
+                  <div classNameName="col-md-5">
+                    <div classNameName="detail-box">
                       <h1>
                         For All Your <br />
                         Furniture Needs
                       </h1>
                       <p>
                         A room should never allow the eye settle in one place. It should smile at you and create fantasy.  </p>
-                      <div className="btn-box">
-                        <a href="/about" className="btn1">
+                      <div classNameName="btn-box">
+                        <a href="/about" classNameName="btn1">
                           About Us
                         </a>
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-7">
-                    <div className="img-box">
+                  <div classNameName="col-md-7">
+                    <div classNameName="img-box">
                       <img src="assets/images/slider-img.png" alt="" />
                     </div>
                   </div>
@@ -57,7 +57,7 @@ const HomePage = () => {
       <br></br>
       <h2>Our Best Products</h2>
       <br></br>
-      <div className="wrapper">
+      <div classNameName="wrapper">
 
         <HomepageCard
           imgsrc={Sdata[0].imgsrc}
@@ -90,7 +90,70 @@ const HomePage = () => {
           title={Sdata[5].title}
           pname={Sdata[5].pname}
         />
-      </div>
+      </div> */}
+      
+    
+    <section className="banner_part">
+        <div className="container">
+            <div className="row align-items-center">
+                <div className="col-md-5">
+                    <div className="banner_text">
+                        <div className="banner_text_iner">
+                            <h1>Best quality
+                                Products</h1>
+                            <p>Seamlessly empower fully researched 
+                                growth strategies and interoperable internal</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="banner_img">
+            <img src="assets/img/banner1.png" alt="#" className="img-fluid"/>
+            <img src="assets/img/banner_pattern.png " alt="#" className="pattern_img img-fluid"/>
+        </div>
+    </section>
+
+    <section className="trending_items">
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-12">
+                    <div className="section_tittle text-center">
+                        <h2>Trending Items</h2>
+                    </div>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-lg-4 col-sm-6">
+                    <div className="single_product_item">
+                        <div className="single_product_item_thumb">
+                            <img src="assets/img/tranding_item/2.jpg" alt="#" className="img-fluid"/>
+                        </div>
+                        <h3> <a href="single-product.html">Chair</a> </h3>
+                        <p>From $5</p>
+                    </div>
+                </div>
+                <div className="col-lg-4 col-sm-6">
+                    <div className="single_product_item">
+                        <img src="assets/img/tranding_item/4.jpg" alt="#" className="img-fluid"/>
+                        <h3> <a href="single-product.html">Sofa</a> </h3>
+                        <p>From $5</p>
+                    </div>
+                </div>
+                <div className="col-lg-4 col-sm-6">
+                    <div className="single_product_item">
+                        <img src="assets/img/tranding_item/5.jpg" alt="#" className="img-fluid"/>
+                        <h3> <a href="single-product.html">Table</a> </h3>
+                        <p>From $5</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+   
+   
     </>
   )
 }

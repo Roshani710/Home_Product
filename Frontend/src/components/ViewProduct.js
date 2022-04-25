@@ -64,7 +64,7 @@ else {
 <>
          <div className="products">
             <div className="container">
-                <h2 className="text-center font-weight-bold mb-5">Furniture</h2>
+                <h2 className="text-center font-weight-bold">Furniture</h2>
                 <div className="inp">
                 <div className="form-group">
                 <label htmlFor='sort_price'>Category:</label>

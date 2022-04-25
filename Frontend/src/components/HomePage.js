@@ -96,13 +96,14 @@ const HomePage = () => {
     <section className="banner_part">
         <div className="container">
             <div className="row align-items-center">
-                <div className="col-md-5">
+                <div className="col-md -5">
                     <div className="banner_text">
                         <div className="banner_text_iner">
-                            <h1>Best quality
+                            <h1>Best
                                 Products</h1>
                             <p>Seamlessly empower fully researched 
-                                growth strategies and interoperable internal</p>
+                                growth strategies 
+                                </p>
                             
                         </div>
                     </div>

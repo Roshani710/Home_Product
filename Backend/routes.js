@@ -14,7 +14,9 @@ const vendorAddProduct = require('./controllers/productAddController');
 const { sortPrice } = require('./controllers/sortPrice');
 const { sortCategory } = require('./controllers/sortCategory');
 const {ViewProductById,DeleteProduct,UpdateProduct} = require('./controllers/productViewController');
-const {OrderHistorybyId} = require('./controllers/orderhistorybyid')
+const {OrderHistorybyId} = require('./controllers/orderhistorybyid');
+
+const { ratings } = require('./controllers/ratingController');
 
 
 router.get("/isAuth",authentication, (req, res) => {
@@ -160,5 +162,7 @@ router.get('/viewProduct/:id', ViewProductById)
 router.delete('/deleteProduct/:id', DeleteProduct)
 router.put('/updateProduct/:id', UpdateProduct)
 router.get("/orderhistory/:user_id", OrderHistorybyId)
+// User Product Review
+router.post('/ratings', ratings)
 
 module.exports = router;

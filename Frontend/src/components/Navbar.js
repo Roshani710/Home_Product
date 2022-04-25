@@ -41,10 +41,14 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <div className="hearer_icon d-flex align-items-center">
-                            <a id="search_1" href="javascript:void(0)"><i className="ti-search"></i></a>
-                            <a href="cart.html">
+                          
+                            {/* <a href="cart.html">
                                 <i className="flaticon-shopping-cart-black-shape"><span>{cart.length}</span></i>
-                            </a>
+                            </a> */}
+                            <li className="nav-item">
+                                <Link className="flaticon-shopping-cart-black-shape" type="text" to="/cart"><span>{cart.length}</span></Link>
+                                </li> 
+                        
                         </div>
                     </nav>
                 </div>

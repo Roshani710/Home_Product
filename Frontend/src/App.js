@@ -27,6 +27,7 @@ import UpdateProduct from './components/Vendor/UpdateProduct';
 import Logout from './components/Logout';
 import Success from './components/Success';
 import { OrderHistory } from './components/OrderHistory';
+import Ratings from './components/Rating';
 
 function App() {
     return (
@@ -55,6 +56,7 @@ function App() {
             <Route path="/logout" element ={<Logout/>}/>
             <Route path='/success' element={<Success />}/>
             <Route path="/orderhistory/:user_id" element={<OrderHistory/>} />
+            <Route path="/rating" element={<Ratings />} />
   
       </Routes>  
       </div>

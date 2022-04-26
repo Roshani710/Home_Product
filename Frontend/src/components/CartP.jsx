@@ -41,7 +41,7 @@ const CartP = ({ product_name, product_id, product_price, product_photo, qty ,pr
                             </div>
                         </div>
                     </div> */}
-            <section className="cart_area section_padding">
+            <section className="cart_area">
                 <div className="container">
                     <div className="cart_inner">
                         <div className="table-responsive">

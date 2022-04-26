@@ -7,7 +7,7 @@ const { getUser } = require('./controllers/getUserController');
 const { resetPassword } = require('./controllers/forgotController')
 const { updatePassword } = require("./controllers/resetController");
 const { upload, addProduct } = require("./controllers/productAddController");
-const { viewProduct } = require("./controllers/viewProductController");
+const { viewProduct,ViewProductByUserId } = require("./controllers/viewProductController");
 const { singleProduct } = require("./controllers/singleProductController");
 const {authentication} = require("./middleware/authentication")
 const vendorAddProduct = require('./controllers/productAddController');
@@ -164,5 +164,8 @@ router.put('/updateProduct/:id', UpdateProduct)
 router.get("/orderhistory/:user_id", OrderHistorybyId)
 // User Product Review
 router.post('/ratings', ratings)
+router.get('/viewProductt/:user_id', ViewProductByUserId)
+
+
 
 module.exports = router;

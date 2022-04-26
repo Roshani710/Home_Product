@@ -22,13 +22,15 @@ exports.updatePassword=async(req,res,next)=>{
                     }
                     console.log(user_password)
                     conn.query('UPDATE home_user SET ? WHERE user_email ="' + result[0].user_email + '"', data, function (err, result) {
-                        if (err) throw err
-
+                        if (err) {
+                        console.log(err)
+                        }
                     });
                 });
             });
             return res.status(200).json({ status: 1, message: "Successfully Updated" })
         } else {
+            console.log(err)
             return res.status(400).json({ status: 0, message: "error" })
 
         }

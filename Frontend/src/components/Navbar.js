@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
 import { DataContext } from '../context/DataContext'
 
 const Navbar = () => {
   const {cart}=useContext(DataContext)
+  let navigate=useNavigate()
   // console.log(cart)
-
+  const user_id = localStorage.getItem("EcomUserId")
   function Logout(){
     localStorage.clear()
     navigate(`/`)
@@ -40,16 +41,23 @@ const Navbar = () => {
                         
                             </ul>
                         </div>
-                        <div className="hearer_icon d-flex align-items-center">
+                        {/* <div className="hearer_icon d-flex align-items-center">
                           
-                            {/* <a href="cart.html">
-                                <i className="flaticon-shopping-cart-black-shape"><span>{cart.length}</span></i>
-                            </a> */}
+                          
                             <li className="nav-item">
                                 <Link className="flaticon-shopping-cart-black-shape" type="text" to="/cart"><span>{cart.length}</span></Link>
                                 </li> 
-                        
-                        </div>
+                                <Link className='mx-2' type="text" style={{ color: "black"}} aria-hidden="true" to={"/orderhistory/"+user_id}>My Orders</Link>
+
+                                <a onClick={Logout} > Logout <i className="fa fa-sign-out" aria-hidden="true"></i></a>
+                        </div> */}
+                        <div class="button-group-area mt-40">
+				
+				<Link to="/cart" class="genric-btn primary radius">Cart<span>{cart.length}</span></Link>
+				<Link to={"/orderhistory/"+user_id} class="genric-btn primary radius">My Orders</Link>
+                <a style={{color:'white'}} onClick={Logout} class="genric-btn primary radius">Logout</a>
+
+			</div>
                     </nav>
                 </div>
             </div>

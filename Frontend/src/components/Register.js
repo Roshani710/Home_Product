@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import Axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
 
 export default function Register() {
+    let nevigate=useNavigate()
     
     const [user_name,setUserName]=useState("");
     const [user_email,setUserEmail]=useState("")
@@ -23,12 +24,13 @@ export default function Register() {
             user_role:user_role
         }).then(()=>{
             alert("Successfully Inserted")
+            nevigate("/homepage")
         }).catch(error => window.alert("Please Enter Valid Data"))
 
         //console.log(setUserName, setUserEmail, setUserAddress, setUserContact, setUserRole);
     }
     return (
-        <section className="vh-100" style={{ backgroundColor: "#eee" }}>
+      /*   <section className="vh-100" style={{ backgroundColor: "#eee" }}>
             <div className="container h-100">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-lg-12 col-xl-11">
@@ -46,8 +48,8 @@ export default function Register() {
                                                 <div className="form-outline flex-fill mb-0">
                                                     <input type="text" id="inputName" value={user_name} className="form-control" 
                                                     onChange={(e) => {setUserName(e.target.value)}} required/>
-                                                    <label className="form-label" htmlFor="inputName">Your Full Name</label>
-                                                </div>
+                                             <label className="form-label" htmlFor="inputName">Your Full Name</label>
+                                                       </div>
                                             </div>
 
                                             <div className="d-flex flex-row align-items-center mb-4">
@@ -131,5 +133,85 @@ export default function Register() {
                 </div>
             </div>
         </section>
-    )
+
+ */  
+
+        <section className="login_part section_padding ">
+        <div className="container">
+            <div className="row align-items-center">
+                <div className="col-lg-6 col-md-6">
+                    <div className="login_part_text text-center">
+                        <div className="login_part_text_iner">
+                            <h2>New to our Shop?</h2>
+                            <p>There are advances being made in science and technology
+                                everyday, and a good example of this is the</p>
+                                <Link to="/"className="btn_3">Login</Link>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                    <div className="login_part_form">
+                        <div className="login_part_form_iner">
+                            <h3>Sign up</h3>
+                            <form className="row contact_form">
+                                <div className="col-md-12 form-group p_star">
+                                    <input type="text" className="form-control" id="name" name="name" value={user_name}
+                                     onChange={(e) => {setUserName(e.target.value)}} required
+                                        placeholder="Full Name"/>
+                                </div>
+                                <div className="col-md-12 form-group p_star">
+                                    <input type="email" className="form-control" id="email" name="name" value={user_email}  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    onChange={(e) => {setUserEmail(e.target.value) }} required
+                                        placeholder="Email"/>
+                                </div>
+                                <div className="col-md-12 form-group p_star">
+                                    <input type="password" className="form-control" id="password" name="password" value={user_password} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                                  onChange={(e) => {setUserPassword(e.target.value) }} required
+                                        placeholder="Password"/>
+                                </div>
+                                <div className="col-md-12 form-group p_star">
+                                    <input type="text" className="form-control" id="name" name="contact_no" value={user_contact}
+                                     onChange={(e) => {setUserContact(e.target.value)}} required
+                                        placeholder="Contact No."/>
+                                </div>
+                                <div className="col-md-12 form-group p_star">
+                                    <input type="text" className="form-control" id="name" name="address" value={user_address}
+                                     onChange={(e) => {setUserAddress(e.target.value)}} required
+                                        placeholder="Address"/>
+                                </div>
+                                <div className="d-flex flex-row align-items-center mb-4">
+                                                <i className="fas fa-key fa-lg me-3 fa-fw"></i>
+                                                <div className="form-outline flex-fill mb-0">
+                                                <label value={user_role} className="form-label" htmlFor="inputRole">Select Role:</label>
+                                                <br/>
+                                                    <div className="form-check form-check-inline">
+                                                        <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="User" onChange={(e) => {
+                                                        setUserRole(e.target.value);
+                                                    }}/>
+                                                        <label className="form-check-label" htmlFor="inlineRadio1">User</label>
+                                                    </div>
+                                                    <div className="form-check form-check-inline">
+                                                        <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Vendor" onChange={(e) => {
+                                                        setUserRole(e.target.value);
+                                                    }} />
+                                                        <label className="form-check-label" htmlFor="inlineRadio2">Vendor</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                <div className="col-md-12 form-group">
+                                   
+                                    <button type="submit" value="submit" className="btn_3" onClick={submitDetails} to ="/homepage">
+                                        Register 
+                                    </button>
+                        
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   )
 }

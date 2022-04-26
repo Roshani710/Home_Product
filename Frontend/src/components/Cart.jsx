@@ -26,14 +26,14 @@ const Cart = () => {
                                     <div className="container">
                                         <div className="row">
                                             <div className="col-lg-12">
-                                                <div className="breadcrumb_iner">
+                                                <div className="breadcrumb_iner" style={{heigth: "100px"}}>
                                                     <h2>cart list</h2>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </section>
-
+                                <br/>
                                 <div className="row">
                                     {
                                         cart.map((val, ind) => {

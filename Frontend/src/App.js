@@ -37,7 +37,7 @@ function App() {
       <>
       <ConText>
       <Router>
-      
+    
       <Navbar/>
       <div className="container my-3">
       <Routes>

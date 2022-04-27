@@ -58,7 +58,7 @@ const Payment = () => {
             totamo += cart[i].product_price * cart[i].qty;
 
         }
-        totamo += 50;
+        totamo += 10;
         //console.log(totamo)
         localStorage.setItem('Total', totamo)
         setTotal(totamo)
@@ -188,6 +188,20 @@ const Payment = () => {
 
     return (
         <>
+            <section class="breadcrumb_part">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="breadcrumb_iner">
+                                <h2>checkout</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <br /> 
+            <br /> 
+            <br /> 
             <div className="payment">
                 <div className="container">
                     <div className="row">
@@ -216,7 +230,7 @@ const Payment = () => {
                                             // console.log(tot)
                                             return (
                                                 <>
-                                                    <tr key={ind}>
+                                                    {/* <tr key={ind}>
                                                         <td>{ind + 1}</td>
                                                         <td className="tab-box">
 
@@ -232,15 +246,35 @@ const Payment = () => {
 
 
 
+                                                    </tr> */}
+                                                    <tr key={ind}>
+                                                        <td>{ind + 1}</td>
+                                                        <td>
+                                                            <div className="media">
+                                                                <div className="d-flex">
+                                                                    <img src={'http://localhost:3009/' + val.product_photo} alt="" />
+                                                                </div>
+                                                                <div className="media-body">
+                                                                    <p>{val.product_name}</p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <h5>${val.product_price}</h5>
+                                                        </td>
+                                                        <td>
+                                                            <h5>{val.qty}</h5>
+                                                        </td>
+                                                        <td>
+                                                            <h5>$.{val.product_price * val.qty}.00</h5>
+                                                        </td>
                                                     </tr>
                                                 </>
                                             )
                                         })
                                     }
                                     <div className="pay p-3">
-                                        <h2>Sub Total : $ {tot}.00</h2>
-                                        <h2>Delivery Fees: $ 10.00</h2>
-                                        <h2>Total Amount : $ {tot + 50}.00</h2>
+                                        <h3>Total Amount : $ {tot}.00</h3>
 
                                     </div>
 
@@ -294,7 +328,7 @@ const Payment = () => {
                         </div>
                         <div className="col-md-6 col-12 mx-auto mb-3">
                             <div className="card">
-                                <h3>Add Recived Address</h3>
+                                <h3>Your Details:</h3>
                                 <br />
                                 {
                                     yourAddress.length ? (
@@ -305,11 +339,11 @@ const Payment = () => {
                                                     yourAddress.map((val, ind) => {
                                                         return (
                                                             <>
-                                                                <button type="button" className="btn btn-info" onClick={() => navigate(`/edit_address/${UserId}`)}>Edit Address</button>
+                                                                {/* <button type="button" className="btn btn-info" onClick={() => navigate(`/edit_address/${UserId}`)}>Edit Address</button> */}
                                                                 <div class="form-check ">
                                                                     <label class="form-check-label p-1 mb-2">
                                                                         <input type="radio" class="form-check-input" name="gender" value={val.user_id} onChange={(e) => setInputAddres(e.target.value)} required />
-                                                                        {val.user_name}<br /> {val.user_email} <br /> {val.user_contact} <br /> {val.user_address}
+                                                                        Name: {val.user_name}<br /> EmailId: {val.user_email} <br /> Phone No.:{val.user_contact} <br /> Address: {val.user_address}
                                                                     </label>
                                                                 </div>
                                                             </>
@@ -321,22 +355,22 @@ const Payment = () => {
 
 
 
-                                                <h4>Choose payment option</h4>
-
+                                                {/* <h4>Choose payment option</h4>
+ */}
                                                 {/* <div class="form-check-inline">
                                <label class="form-check-label">
                                    <input type="radio" class="form-check-input" name="payment" value="cod" onChange={(e)=>setPayment(e.target.value)}  required/>Cod
                                </label>
                            </div> */}
-                                                <div class="form-check-inline">
+                                                {/* <div class="form-check-inline">
                                                     <label class="form-check-label">
                                                         <input type="radio" class="form-check-input" name="payment" value="online" onChange={(e) => setPayment(e.target.value)} required />Online
                                                     </label>
                                                 </div>
-
+ */}
 
                                                 <div class="text-center m-3">
-                                                    <input type="submit" class="btn btn-info pt-2 pb-2 pl-5 pr-5" onClick={OnBuyNow} value="Buy Now"  />
+                                                    <input type="submit" class="btn btn-info pt-2 pb-2 pl-5 pr-5" onClick={OnBuyNow} value="Buy Now" />
                                                 </div>
 
 

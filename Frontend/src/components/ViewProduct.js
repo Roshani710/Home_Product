@@ -27,10 +27,10 @@ const ViewProduct = (req,res) => {
       setProducts(data.products)
   }
   const sortData= async (sort)=>{
-    const {data}=await axios.get(`http://localhost:3009/sort/${sort}`,{
+    const res=await axios.get(`http://localhost:3009/sort/${sort}`,{
 
     })
-    setProducts(data.products)
+    setProducts(res.data)
 }
 const sortHandel=(e)=>{
 const sort=e.target.value
@@ -61,10 +61,10 @@ else {
 }
 
   return (
-<>
+<> 
          <div className="products">
             <div className="container">
-                <h2 className="text-center font-weight-bold mb-5">Furniture</h2>
+                <h2 className="text-center font-weight-bold">Furniture</h2>
                 <div className="inp">
                 <div className="form-group">
                 <label htmlFor='sort_price'>Category:</label>

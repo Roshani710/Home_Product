@@ -7,14 +7,16 @@ const { getUser } = require('./controllers/getUserController');
 const { resetPassword } = require('./controllers/forgotController')
 const { updatePassword } = require("./controllers/resetController");
 const { upload, addProduct } = require("./controllers/productAddController");
-const { viewProduct } = require("./controllers/viewProductController");
+const { viewProduct,ViewProductByUserId } = require("./controllers/viewProductController");
 const { singleProduct } = require("./controllers/singleProductController");
 const {authentication} = require("./middleware/authentication")
 const vendorAddProduct = require('./controllers/productAddController');
 const { sortPrice } = require('./controllers/sortPrice');
 const { sortCategory } = require('./controllers/sortCategory');
 const {ViewProductById,DeleteProduct,UpdateProduct} = require('./controllers/productViewController');
-const {OrderHistorybyId} = require('./controllers/orderhistorybyid')
+const {OrderHistorybyId} = require('./controllers/orderhistorybyid');
+
+const { ratings } = require('./controllers/ratingController');
 
 
 router.get("/isAuth",authentication, (req, res) => {
@@ -160,5 +162,10 @@ router.get('/viewProduct/:id', ViewProductById)
 router.delete('/deleteProduct/:id', DeleteProduct)
 router.put('/updateProduct/:id', UpdateProduct)
 router.get("/orderhistory/:user_id", OrderHistorybyId)
+// User Product Review
+router.post('/ratings', ratings)
+router.get('/viewProductt/:user_id', ViewProductByUserId)
+
+
 
 module.exports = router;

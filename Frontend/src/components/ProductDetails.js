@@ -67,6 +67,18 @@ else{
         <>
         <div className="details">
             <div className="container">
+            <section class="breadcrumb_part">
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col-lg-12">
+                                                <div className="breadcrumb_iner" style={{heigth: "100px"}}>
+                                                    <h2>Single Product</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <br/>
                 <div className="row">
                     <div className="col-md-6 col-12 mx-auto mb-3">
                     <img src={'http://localhost:3009/' + detdata[0].product_photo}   alt="" className="img-fluid p-im" />

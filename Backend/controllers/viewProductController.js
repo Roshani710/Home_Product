@@ -9,4 +9,17 @@ const viewProduct = async (req, res,next) => {
     })
 }
 
-module.exports = { viewProduct }
+const ViewProductByUserId = async (req, res) => {
+    const user_id = req.params.user_id;
+    conn.execute('SELECT * FROM `home_product` WHERE user_id="' + user_id + '"', function (err,result) {
+        if (err){
+            console.log(err)
+        }
+        else{
+            console.log(result)
+        return res.status(200).json({ products: result })
+       
+        }
+    })
+}
+module.exports = { viewProduct ,ViewProductByUserId}

@@ -10,7 +10,11 @@ export default function Pay() {
     const navigate = useNavigate();
 
     return (
-
+     <div className='container' style={{
+         textAlign:"center",
+         height:"250px",
+         paddingTop:"3rem"
+     }}>
         <PayPalScriptProvider options={{ "client-id": "test" }}>
             <PayPalButtons
                 createOrder={(data, actions) => {
@@ -43,5 +47,6 @@ export default function Pay() {
                 }}
             />
         </PayPalScriptProvider>
+        </div>
     );
 }

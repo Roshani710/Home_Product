@@ -5,3 +5,14 @@
     justify-content: center;
     background-color: #B08EAD;
   }
+
+.imgs{
+  width: 500px;
+  height: 300px;
+  /* background-color: red; */
+}
+.table td img {
+  width: 300px;
+  height: 110px;
+  border-radius: 100%;
+}

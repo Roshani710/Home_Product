@@ -52,10 +52,14 @@ const Navbar = () => {
                                 <a onClick={Logout} > Logout <i className="fa fa-sign-out" aria-hidden="true"></i></a>
                         </div> */}
                         <div class="button-group-area mt-40">
-				
+				{localStorage.getItem('token')?<form classname="d-flex">
 				<Link to="/cart" class="genric-btn primary radius">Cart<span>{cart.length}</span></Link>
 				<Link to={"/orderhistory/"+user_id} class="genric-btn primary radius">My Orders</Link>
                 <a style={{color:'white'}} onClick={Logout} class="genric-btn primary radius">Logout</a>
+                </form>:
+                <a style={{color:'white'}}  class="genric-btn primary radius">Login</a>}
+               
+                
 
 			</div>
                     </nav>

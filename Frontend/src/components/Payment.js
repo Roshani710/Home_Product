@@ -214,9 +214,6 @@ const Payment = () => {
                                         <th>Price</th>
                                         <th>Qty</th>
                                         <th>Amount</th>
-
-
-
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -224,29 +221,9 @@ const Payment = () => {
 
                                         cart.map((val, ind) => {
                                             tot = tot + val.product_price * val.qty
-
-                                            // tot >0 ? setTotal(tot) :null
-
-                                            // console.log(tot)
                                             return (
                                                 <>
-                                                    {/* <tr key={ind}>
-                                                        <td>{ind + 1}</td>
-                                                        <td className="tab-box">
-
-                                                            <Link to={`/details/${val.product_id}`}>
-
-                                                                <img src={'http://localhost:3009/' + val.product_photo} alt="" className="img-fluid t-img" />
-                                                                <p >{val.product_name}</p>
-                                                            </Link>
-                                                        </td>
-                                                        <td>${val.product_price}.00</td>
-                                                        <td>{val.qty}</td>
-                                                        <td>${val.product_price * val.qty}.00</td>
-
-
-
-                                                    </tr> */}
+                                                    
                                                     <tr key={ind}>
                                                         <td>{ind + 1}</td>
                                                         <td>

@@ -143,8 +143,9 @@ export default function Register() {
                     <div className="login_part_text text-center">
                         <div className="login_part_text_iner">
                             <h2>New to our Shop?</h2>
-                            <p>There are advances being made in science and technology
-                                everyday, and a good example of this is the</p>
+                            <p>A room should never allow the eye settle in one place.
+                                It should settle at you and create fantacy.
+                            </p>
                                 <Link to="/"className="btn_3">Login</Link>
                             
                         </div>
@@ -180,22 +181,23 @@ export default function Register() {
                                      onChange={(e) => {setUserAddress(e.target.value)}} required
                                         placeholder="Address"/>
                                 </div>
-                                <div className="d-flex flex-row align-items-center mb-4">
-                                                <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                                                <div className="form-outline flex-fill mb-0">
-                                                <label value={user_role} className="form-label" htmlFor="inputRole">Select Role:</label>
+                               
+                                <div className="single-element-widget mt-30" >
+                                                
+                                                <div className="switch-wrap d-flex justify-content-between">
+                                                <label value={user_role} htmlFor="inputRole">Select Role:</label>
                                                 <br/>
-                                                    <div className="form-check form-check-inline">
-                                                        <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="User" onChange={(e) => {
+                                                    <div className="primary-radio">
+                                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="User" onChange={(e) => {
                                                         setUserRole(e.target.value);
                                                     }}/>
-                                                        <label className="form-check-label" htmlFor="inlineRadio1">User</label>
+                                                        <label htmlFor="inlineRadio1">User</label>
                                                     </div>
-                                                    <div className="form-check form-check-inline">
-                                                        <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Vendor" onChange={(e) => {
+                                                    <div className="primary-radio" >
+                                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Vendor" onChange={(e) => {
                                                         setUserRole(e.target.value);
                                                     }} />
-                                                        <label className="form-check-label" htmlFor="inlineRadio2">Vendor</label>
+                                                        <label htmlFor="inlineRadio2">Vendor</label>
                                                     </div>
                                                 </div>
                                             </div>

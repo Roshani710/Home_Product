@@ -101,7 +101,7 @@ const HomePage = () => {
                         <div className="banner_text_iner">
                             <h1>Best
                                 Products</h1>
-                            <p>For All Your Furniture Needs
+                            <p>Inner Peace Starts At Home..!!
                                 </p>
                             
                         </div>

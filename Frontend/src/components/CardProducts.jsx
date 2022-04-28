@@ -21,11 +21,11 @@ const CardProducts = ({ product_id, product_name, product_price, product_photo }
             </div>
         </div> */}
 
-            <div className="col-lg-4 col-md-6 col-12 products-p">
-                <div className="card p-2">
+            <div className="col-lg-4 col-md-6 col-12 products-p ">
+                <div className="card p-2 ">
 
-                    <div className="single_product_item">
-                        <img src={'http://localhost:3009/' + product_photo} alt="#" className="img-fluid" />
+                    <div className="single_product_item ">
+                        <img src={'http://localhost:3009/' + product_photo} alt="#" className='imgs' />
                         <h3> <a href="single-product.html">{product_name}
                         </a> </h3>
                         <p>{product_price}</p>

@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./style.css";
 import { Link } from 'react-router-dom'
 
 export default function Home() {
+
+  console.log(window.localStorage.getItem("Ecomrole"))
+  if(localStorage.getItem("Ecomrole")!= "Vendor")
+  {
+    useEffect(() => {
+      alert("Login first!");
+    }, [])
+  }
+  else{
+    useEffect(() => {
+      alert("Welcome vendor!!");
+    }, [])
+  }
+
   return (
     <div>
       <div className="container-scroller">

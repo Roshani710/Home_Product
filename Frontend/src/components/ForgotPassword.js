@@ -69,8 +69,9 @@ export default function ForgotPassword() {
                     <div className="login_part_text text-center">
                         <div className="login_part_text_iner">
                             <h2>Forgot Password</h2>
-                            <p>There are advances being made in science and technology
-                                everyday, and a good example of this is the</p>
+                            <p>A room should never allow the eye settle in one place.
+                                It should settle at you and create fantacy.
+                            </p>
                     
                         </div>
                     </div>

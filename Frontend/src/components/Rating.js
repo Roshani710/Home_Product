@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaStar } from "react-icons/fa";
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 
 const colors = {
     orange: "#FFBA5A",
@@ -17,6 +18,9 @@ const Ratings = () => {
     const stars = Array(5).fill(0)
     const id = localStorage.getItem("EcomUserId")
     const pId = localStorage.getItem("productId")
+    const uName = localStorage.getItem("EcomUser")
+
+    const navigate = useNavigate()
 
     const submit = async(e) =>{
         e.preventDefault();
@@ -25,11 +29,19 @@ const Ratings = () => {
                 review_description: description,
                 review_star: currentValue,
                 user_id: id,
-                product_id: pId
+                product_id: pId,
+                user_name:uName
                 
-            }).then(() => {
-                alert('Successfully Inserted!!')
-            }).catch(error => alert("Invalid!!"))
+            }).then((response) => {
+                //console.log("1", response.data);
+                if(response.data.message === "Exists!!"){
+                    alert("Sorry, you've already done review!!");
+                    navigate("/homepage");
+                }else{
+                    alert("Success!");
+                    navigate("/homepage");
+                }       
+            })
     }
 
     const handleClick = value => {
@@ -51,7 +63,7 @@ const Ratings = () => {
     return (
 
         <div style={styles.container}>
-            <h2> Product-ratings </h2>
+            <h4 style={{ fontSize: '20px', color: '#00997a'}}> Product Rating </h4>
             <div style={styles.stars}>
                 {stars.map((_, index) => {
                     return (
@@ -83,7 +95,7 @@ const Ratings = () => {
         Submit
       </button>
        */}
-            <button type='submit' className="btn btn-outline-success" onClick={submit}>Submit</button>
+            <button type='submit' className="btn btn-outline-light" style={{borderColor:"#00997a", color:"black"}} onClick={submit}>Submit</button>
         </div>
     );
 };
@@ -114,3 +126,4 @@ const styles = {
 
 };
 export default Ratings;
+

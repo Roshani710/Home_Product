@@ -31,6 +31,7 @@ import Ratings from './components/Rating';
 import Newpage from './components/Vendor/Newpage';
 import Newadd from './components/Vendor/Newadd';
 import NewUpdate from './components/Vendor/Newupdate';
+import Footer from './components/Footer';
 
 function App() {
     return (
@@ -63,11 +64,10 @@ function App() {
             <Route path="/vendor" element={< Newpage/>} />
             <Route path="/newadd" element={< Newadd/>} />
             <Route path="/newupdate/:id" element={< NewUpdate/>} />
-            
-            
+           
       </Routes>  
       </div>
-     
+     <Footer/>
       </Router>
      
       </ConText>

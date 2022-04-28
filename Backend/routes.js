@@ -15,8 +15,9 @@ const { sortPrice } = require('./controllers/sortPrice');
 const { sortCategory } = require('./controllers/sortCategory');
 const {ViewProductById,DeleteProduct,UpdateProduct} = require('./controllers/productViewController');
 const {OrderHistorybyId} = require('./controllers/orderhistorybyid');
+const validateReview  = require('./middleware/validateReview');
 
-const { ratings } = require('./controllers/ratingController');
+const { ratings,review } = require('./controllers/ratingController');
 
 
 router.get("/isAuth",authentication, (req, res) => {
@@ -165,6 +166,13 @@ router.get("/orderhistory/:user_id", OrderHistorybyId)
 // User Product Review
 router.post('/ratings', ratings)
 router.get('/viewProductt/:user_id', ViewProductByUserId)
+
+
+// User Product Review
+router.post('/ratings', validateReview ,ratings)
+
+// User View FeedBack
+router.get('/review/:product_id', review)
 
 
 

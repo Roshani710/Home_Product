@@ -27,6 +27,7 @@ export default function Login() {
                 window.localStorage.setItem("EcomEmail",json.user_email)
                 window.localStorage.setItem("EcomUserId",json.user_id)
                 window.localStorage.setItem("EcomUser",json.user)
+                window.localStorage.setItem("Ecomrole",json.role)
                 if(json.role==="User")
                 {
                     navigate("/homepage")
@@ -86,17 +87,7 @@ export default function Login() {
 
         //                                     <div classNameName="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
         //                                     <Link to="/forgotpassword">Forget Password</Link>
-        //                                     </div>
-                                            
-
-                                        
-        //                                     <div classNameName="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-        //                                      <button type='button' classNameName="btn btn-primary btn-lg" onClick={login} to = "/homepage">login</button> 
-        //                                        </div>
-
-                                            
-        //                                     <div classNameName="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-        //                                     <Link to="/register">Create Account</Link>
+        //                                     </div>viewproductnk>
         //                                     </div>
 
         //                                 </form>
@@ -121,8 +112,9 @@ export default function Login() {
                     <div className="login_part_text text-center">
                         <div className="login_part_text_iner">
                             <h2>New to our Shop?</h2>
-                            <p>There are advances being made in science and technology
-                                everyday, and a good example of this is the</p>
+                            <p>A room should never allow the eye settle in one place.
+                                It should settle at you and create fantacy.
+                            </p>
                                 <Link to="/register"className="btn_3">Create Account</Link>
                             
                         </div>

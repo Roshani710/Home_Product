@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router'
+import Ratings from './Rating';
+import { Link } from 'react-router-dom'
 
 export default function Success() {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    useEffect(() =>{
-        setTimeout(() => navigate('/homepage'), 3000)
-    })
+    // useEffect(() =>{
+    //     setTimeout(() => navigate('/homepage'), 3000)
+    // })
 
     return (
         <>
+    
             <div className="d-flex justify-content-center">
                 <lord-icon
                     src="https://cdn.lordicon.com/lupuorrc.json"
@@ -22,9 +24,17 @@ export default function Success() {
             <div className="d-flex justify-content-center">
                 <hr />
                 <label style={{ fontSize: '20px', fontStyle: 'italic', color: '#00997a', textAlign: 'center' }} onClick={() => navigate('/homepage')}>Successfully Purchased!!</label>
-        </div>
+            </div>
+            <br /> <br/> <br />
+            <div>
+            <Ratings />
+            </div>
+            <div>
+            <Link to = '/homepage' style={{ color: '#00997a' }}>skip</Link>
+            </div>
 
         </>
     )
 
 }
+

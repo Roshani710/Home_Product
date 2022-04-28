@@ -42,8 +42,8 @@ const addProduct = async (req, res) => {
                 req.body.product_price,
                 req.body.product_discount,
                 req.files[0].path,
-                req.body.product_status
-
+                'Not Paid'
+                
             ],
             (error, results) => {
                 if (error) {

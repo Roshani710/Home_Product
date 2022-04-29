@@ -38,10 +38,11 @@ const NewUpdate = () => {
     }, [])
           
     
-    async function onSubmit( )  {
+     function onSubmit( )  {
       //alert(product_id)
         console.log("enter",product_id)
-       await axios.put(`http://localhost:3009/updateProduct/${product_id}`,
+        console.log("1")
+        axios.put(`http://localhost:3009/updateProduct/${product_id}`,
        {
          product_id:product_id,
          product_name:product_name,
@@ -110,7 +111,7 @@ const NewUpdate = () => {
 
                                 <div class="col-md-12 form-group">
                                     
-                                    <button type="submit" value="submit" class="btn_3" onClick={() => onSubmit(product_id)}>
+                                    <button type="button"  class="btn_3" onClick={() => onSubmit(product_id)}>
                                         Update
                                     </button>
                                 </div>

@@ -1,97 +1,85 @@
-import React, { useContext, useRef } from "react";
-import CartP from "./CartP";
-import { DataContext } from "../context/DataContext";
-import { useNavigate } from "react-router-dom";
+import axios from 'axios'
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router'
+
 const Cart = () => {
-  const nevigate = useNavigate();
-  const { cart } = useContext(DataContext);
-  
+    const [data,setData]=useState([])
+    
+    const {product_id} = useParams()
+    
+    useEffect(()=>{
+        getData()
+    },[])
 
-  console.log(cart);
-  return (
-    <>
-      <div className="cart">
-        {!cart.length ? (
-          <>
-            <div className="container">
-              <h2>There is No Items In the Cart</h2>
-              <button
-                className="btn btn-info"
-                onClick={() => nevigate("/viewproduct")}
-              >
-                Continue Shopping
-              </button>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="container">
-              <section class="breadcrumb_part">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-lg-12">
-                      <div className="breadcrumb_iner">
-                        <h2>cart list</h2>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
+    localStorage.getItem("product_photo");
+    localStorage.getItem("product");
+    localStorage.getItem("qty");
+    localStorage.getItem("Total");
 
-              <div className="row">
-              <div className="table-responsive">
-                  <table className="table">
-                  <thead>
-                  <tr>
-                    <th scope="col">Product</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Total</th>
-                  </tr>
-                </thead>
-                </table>
-                </div>
-                  
-                {cart.map((val, ind) => {
-                  return (
-                    <>
-                      <div className="checkout_btn_inner float-right my-4">
-                      <CartP
-                        key={ind}
-                        product_photo={val.product_photo}
-                        product_name={val.product_name}
-                        product_price={val.product_price}
-                        qty={val.qty}
-                      />
-                       
-                      </div>
+    const getData=async ()=>{
 
-                    </>
-                  );
-                })}
-                
-              </div>
+        const data = {
             
-              <div className="checkout_btn_inner float-right">
-                {/* <button
-                  className="btn_1 mx-2"
-                  onClick={() => deleteProduct(product_id)}
-                >
-                  Delete
-                </button> */}
-                <button
-                  className="btn_1 mx-2 my-1"
-                  onClick={() => nevigate("/payment")}
-                >
-                  Proceed to checkout
-                </button>
-              </div>
-            </div>
-          </>
-        )}
-      </div>
-    </>
-  );
-};
+        }
 
-export default Cart;
+        const res = await axios.post(`http://localhost:3009/viewCart`)
+        setData(data.datas)
+        
+        console.log("data1 data.data.products===>",data.datas)
+        //console.log("data2 data.data===>",data.datas)
+        console.log("data3 data===>",data)
+    }
+
+    // async function getOrderhistory(user_id){
+  return (
+      <>
+    <section className="breadcrumb_part my-2">
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col-lg-12">
+                                                <div className="breadcrumb_iner">
+                                                    <h2>My Cart</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+            </section>
+             <section className="cart_area section_padding my-2">
+                <div className="container">
+                    <div className="cart_inner">
+                        <div className="table-responsive">
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">&#9;</th>
+                                        <th scope="col">Product</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Qty</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {
+                             data.map((product) => (
+                                 <tr >
+                                     <td>{product.product_photo}</td>
+                                     <td>{product.product}</td>
+                                     <td>{product.price}</td>
+                                     <td>{product.qty}</td>
+                                     <td>{product.total}</td>
+                                 </tr>
+                             )
+                             )
+                         } 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+</>
+  )
+}
+
+export default Cart

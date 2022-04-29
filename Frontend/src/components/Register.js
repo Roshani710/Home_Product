@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Axios from 'axios'
 import { Link } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router';
 
 export default function Register() {
     
@@ -11,8 +12,10 @@ export default function Register() {
     const [user_address,setUserAddress]=useState("")
     const [user_role,setUserRole]=useState("")
 
+    const navigate = useNavigate();
 
-    const submitDetails=()=>{
+    const submitDetails=(e)=>{
+        e.preventDefault()
         Axios.post('http://localhost:3009/register',
         {
             user_name:user_name,
@@ -21,9 +24,20 @@ export default function Register() {
             user_contact:user_contact,
             user_address:user_address,
             user_role:user_role
-        }).then(()=>{
-            alert("Successfully Inserted")
-        }).catch(error => window.alert("Please Enter Valid Data"))
+        }).then((response)=>{
+            console.log(response.data.message)
+            if(response.data.message === "Inserted!!"){
+                alert("Successfully Registered!!");
+                navigate("/");
+            }
+            else if(response.data.message === "Exists!!"){
+                alert("You are already registered!!");
+                navigate("/");
+            }
+            else{
+                navigate("/")
+            }
+        })
 
         //console.log(setUserName, setUserEmail, setUserAddress, setUserContact, setUserRole);
     }

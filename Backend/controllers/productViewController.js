@@ -107,24 +107,19 @@ const DeleteProduct = async (req, res) => {
 // }
 
 const UpdateProduct = async (req, res) => {
-    const data = [req.body.product_name, req.body.product_description, req.body.product_price, req.body.product_discount, req.params.id]
+    const name= req.body.product_name;
+    const desc = req.body.product_description; 
+    const price = req.body.product_price;
+    const discount = req.body.product_discount; 
+    const id = req.params.id;
     //console.log(data)
-    conn.execute('UPDATE home_product SET product_name=?, product_description=?, product_price=?, product_discount=? WHERE product_id=?', data, 
+    console.log(name,desc,price,discount,id);
+    conn.query('UPDATE home_product SET product_name=?, product_description=?, product_price=?, product_discount=? WHERE product_id=?', 
+    [name, desc, price, discount, id], 
     (err, results) => {
-        if (!err) {
-            if(results.affectedRows==0){
-                return res.status(404).json({message:"product id not found"})
-            }
-            return res.status(200).json({message:"The Product data is successfully Updated."})
-            //console.log(error)
-            //return error
-            
-        }
-        else (null, results)
-        {
-            return res.status(500).json({
-
-            });
+        if(err) console.log(err);
+        else{
+            results.send({message: "Updated!!"})
         }
     })
 }

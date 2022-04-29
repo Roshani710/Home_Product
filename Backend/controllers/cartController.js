@@ -59,7 +59,7 @@ const deleteCart = async (req, res) => {
     const user_id = req.params.user_id;
     const product_id = req.params.product_id;
 
-    let query = "DELETE FROM `home_cart` WHERE (user_id = ? AND product_id = ?)"; 
+    let query = "DELETE FROM `home_cart` WHERE (user_id AND product_id = ?)"; 
    conn.query(query,[user_id, product_id], (err, result) => {
         if (err) {
             console.log(err)

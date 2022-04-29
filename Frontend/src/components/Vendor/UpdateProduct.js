@@ -55,8 +55,13 @@ const UpdateProduct = () => {
        //product_photo:product_photo
 
      })
-     .then(() => {
-       alert("Successfully Inserted")
+     .then((response) => {
+       if(response.data.message === "Updated!!"){
+           alert("Updated")
+       }
+       else{
+           alert("Error!!")
+       }
    }).catch(error => console.log("error===>",error))
 
     // .then(res =>{

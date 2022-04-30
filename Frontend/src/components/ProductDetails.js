@@ -30,7 +30,7 @@ const ProductDetails = () => {
       qty: pdetails,
     };
 
-    localStorage.setItem("product_photo", detdata[0].product_photo);
+    localStorage.setItem("photo", detdata[0].product_photo);
     localStorage.setItem("productId", detdata[0].product_id);
     localStorage.setItem("product", detdata[0].product_name);
     localStorage.setItem("qty", pdetails);

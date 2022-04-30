@@ -9,9 +9,9 @@ const addCart = async (req, res) => {
     const product_photo = req.body.product_photo;
 
 
-   //let query = "INSERT INTO `home_cart`(`user_id`, `product_id`, `product_name`, `product_price`, `product_qty`, `product_photo`) VALUES (?, ?, ?, ?, ?, ?)";
-   let query = "INSERT INTO `home_cart`(`user_id`, `product_id`, `product_name`, `product_price`, `product_qty`) VALUES (?, ?, ?, ?, ?)"; 
-   conn.query(query,[user_id, product_id, product_name, product_price, product_qty], (err, result) => {
+   let query = "INSERT INTO `home_cart`(`user_id`, `product_id`, `product_name`, `product_price`, `product_qty`, `product_photo`) VALUES (?, ?, ?, ?, ?, ?)";
+   //let query = "INSERT INTO `home_cart`(`user_id`, `product_id`, `product_name`, `product_price`, `product_qty`) VALUES (?, ?, ?, ?, ?)"; 
+   conn.query(query,[user_id, product_id, product_name, product_price, product_qty, product_photo], (err, result) => {
         if (err) {
             console.log(err)
             return res.status(404).json({

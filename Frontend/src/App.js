@@ -32,6 +32,7 @@ import Newpage from './components/Vendor/Newpage';
 import Newadd from './components/Vendor/Newadd';
 import NewUpdate from './components/Vendor/Newupdate';
 import Footer from './components/Footer';
+import ViewUsers from './components/Vendor/ViewUsers';
 
 function App() {
     return (
@@ -52,7 +53,7 @@ function App() {
             <Route path="/viewproduct" element={<ViewProduct/>}/>
             {/* <Route path="/vendorviewproduct" element={<VendorViewProduct/>} />
             <Route path="/updateproduct/:id" element={<UpdateProduct/>} /> */}
-            <Route path="/details/:product_id" element={<ProductDetails/>} />
+            <Route path="/details/:product_id" element={<ProductDetails />} />
             {/* <Route path="/vendor" element={<Home/>}/> */}
             <Route path="/cart" element={<Cart/>} />
             <Route path="/payment" element ={<Payment/>}/>
@@ -64,6 +65,7 @@ function App() {
             <Route path="/vendor" element={< Newpage/>} />
             <Route path="/newadd" element={< Newadd/>} />
             <Route path="/newupdate/:id" element={< NewUpdate/>} />
+            <Route path="/viewusers/:vendor_id" element={< ViewUsers/>} />
            
       </Routes>  
       </div>

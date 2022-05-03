@@ -60,9 +60,9 @@ export const OrderHistory = () => {
                              data.map((product) => (
                                  <tr >
                             
-                                     <td>{product.product}</td>
-                                     <td>{product.price}</td>
-                                     <td>{product.qty}</td>
+                                     <td>{product.product_name}</td>
+                                     <td>{product.product_price}</td>
+                                     <td>{product.product_qty}</td>
                                      <td>{product.payment_status}</td>
 
                                  </tr>

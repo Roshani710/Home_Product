@@ -8,7 +8,7 @@ const AllProducts = () => {
     const checkAuth=()=>{
         axios.get("http://localhost:3009/isAuth",{
             headers:{
-             "x-access-token":localStorage.getItem("token")
+             "token":localStorage.getItem("token")
             }
         }).then((response)=>{
          if(!response.data.login)

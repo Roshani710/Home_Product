@@ -22,10 +22,20 @@ export default function Register() {
             user_contact:user_contact,
             user_address:user_address,
             user_role:user_role
-        }).then(()=>{
-            alert("Successfully Inserted")
-            nevigate("/homepage")
-        }).catch(error => window.alert("Please Enter Valid Data"))
+        }).then((response)=>{
+            console.log(response.data.message)
+            if(response.data.message === "Inserted!!"){
+                alert("Successfully Registered!!");
+                navigate("/");
+            }
+            else if(response.data.message === "Exists!!"){
+                alert("You are already registered!!");
+                navigate("/");
+            }
+            else{
+                navigate("/")
+            }
+        })
 
         //console.log(setUserName, setUserEmail, setUserAddress, setUserContact, setUserRole);
     }

@@ -7,37 +7,6 @@ const ratings = async (req, res) => {
     const product_id = req.body.product_id;
     const user_name = req.body.user_name;
 
-    // try {
-    //     let isUserAndProductExists = conn.query("SELECT user_id, product_id from home_review")
-    //     console.log("gfasxvgashjgahsgsjh", isUserAndProductExists);
-    //     if (isUserAndProductExists) {
-
-    //         return res.send("Already inserted!!")
-    //     }
-
-    //     let query = "INSERT INTO `home_review`(`user_id`, `user_name`, `product_id`, `review_star`, `review_description`) VALUES (?, ?, ?, ?,?)";
-    //     conn.query(query, [user_id, user_name, product_id, review_star, review_description], (err, result) => {
-    //         if (err) {
-    //             console.log(err)
-    //             return res.status(404).json({
-    //                 status: 0,
-    //                 message: "Not Found.",
-    //             });
-
-    //         }
-    //         else {
-
-    //             return res.status(200).json({
-    //                 status: 1,
-    //                 message: "Successfully inserted.",
-    //             });
-    //         }
-    //     });
-
-    // } catch (error) {
-    //     console.log("Error", error);
-    // }
-
     let query = "INSERT INTO `home_review`(`user_id`, `user_name`, `product_id`, `review_star`, `review_description`) VALUES (?, ?, ?, ?, ?)";
     conn.query(query,[user_id, user_name, product_id, review_star, review_description], (err, result) => {
         if (err) {

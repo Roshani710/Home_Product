@@ -14,7 +14,7 @@ const Ratings = () => {
 
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
-    const [description, setDescription] = useState("")
+    const [description, setDescription] = useState("Enter Your Feedback...")
     const stars = Array(5).fill(0)
     const id = localStorage.getItem("EcomUserId")
     const pId = localStorage.getItem("productId")

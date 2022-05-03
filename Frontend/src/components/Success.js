@@ -4,12 +4,6 @@ import { Link } from 'react-router-dom'
 
 export default function Success() {
 
-    // const navigate = useNavigate();
-
-    // useEffect(() =>{
-    //     setTimeout(() => navigate('/homepage'), 3000)
-    // })
-
     return (
         <>
     

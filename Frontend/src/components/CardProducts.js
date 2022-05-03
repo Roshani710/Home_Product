@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 const CardProducts = ({ product_id, product_name, product_price, product_photo }) => {
     const nevigate = useNavigate()
+   
     return (
         <>
             {/* <div classNameName="col-lg-4 col-md-6 col-12  mb-3 products-p">

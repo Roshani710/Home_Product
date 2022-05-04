@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const Newpage = () => {
   const [products, setProducts] = useState([])
 const u_id=localStorage.getItem("EcomUserId")
+const vendor_id=localStorage.getItem("EcomUserId")
   useEffect(() => {
     //console.log("test")
     getProductsData()
@@ -46,7 +47,7 @@ async function deleteOperation(id) {
                     <Link className="nav-link" to="/newadd">
                                 <button className="btn_1 mx-2" >Add Product</button></Link>
                                 {/* <button className="btn_1 mx-2" onClick={()=>nevigate('/payment')}>Proceed to checkout</button> */}
-                                <Link className="nav-link" to="/viewusers">
+                                <Link className="nav-link" to={"/viewusers/"+vendor_id}>
                                 <button className="btn_1 mx-2" >view users</button></Link>          
                             </div>
                         <div className="table-responsive">
@@ -104,10 +105,6 @@ async function deleteOperation(id) {
                                     </tr>
                                   ))
                                 }
-                                   
-                                   
-                                   
-                
                                 </tbody>
                             </table>
                             

@@ -47,7 +47,7 @@ const ProductDetails = () => {
     console.log("cart", cartData);
 
     const res = axios
-      .post(`http://localhost:3009/addCart`, cartData)
+      .post(`http://localhost:3009/addCart/${product_id}`, cartData)
       .then(() => {
       nevigate("/viewproduct")});
   };

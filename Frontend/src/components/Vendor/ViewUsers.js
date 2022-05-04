@@ -55,14 +55,14 @@ async function getProductsData() {
                                         
                                         <td >
                                         <div className="media-body">
-                                            <h5>{product.product}</h5>
+                                            <h5>{product.product_name}</h5>
                                             </div>
                                         </td>
                                         <td>
-                                            <h5>{product.qty}</h5>
+                                            <h5>{product.product_qty}</h5>
                                         </td>
                                         <td>
-                                            <h5>{product.price}</h5>
+                                            <h5>{product.product_price}</h5>
                                         </td>
                                         <td>
                                             <h5>{product.payment_status}</h5>
@@ -72,9 +72,6 @@ async function getProductsData() {
                                   ))
                                 }
                                    
-                                   
-                                   
-                
                                 </tbody>
                             </table>
                             

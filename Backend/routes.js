@@ -34,6 +34,7 @@ const {
 const { ratings, review } = require("./controllers/ratingController");
 const { response } = require("express");
 const { ViewUsers, getVendorID } = require("./controllers/viewUsers");
+const { getVendor } = require("./controllers/getVendor");
 
 router.get("/isAuth", authentication, (req, res) => {
   res.send({ login: true, msg: "done" });
@@ -165,14 +166,14 @@ router.get("/getaddress/:user_id", (req, res) => {
 router.post("/orders", async (req, res) => {
 
  const sql1=`SELECT user_id FROM home_product`
-  const { user_id, user_name, product_id, product_name, product_price, product_qty, day, payment_status, product_photo } = req.body;
+  const { user_id, user_name, product_id, product_name, product_price, product_qty, day, payment_status, product_photo,vendor_id } = req.body;
   const total = 0;
   console.log(req.body);
 
   for (let i = 0; i < req.body.length; i++) {
     const sql =
-      'INSERT INTO `orders` (`user_id`, `user_name`, `product_id`, `product_name`, `product_price`, `product_qty`, `day`, `payment_status`, `product_photo`) VALUES (?,?,?,?,?,?,?,?,?)';
-    conn.query(sql, [req.body[i].user_id, req.body[i].user_name, req.body[i].product_id, req.body[i].product_name, req.body[i].product_price, req.body[i].product_qty, req.body[i].day, 'Not Paid', req.body[i].product_photo], (error, result) => {
+      'INSERT INTO `orders` (`user_id`, `user_name`, `product_id`, `product_name`, `product_price`, `product_qty`, `day`, `payment_status`, `product_photo`,`vendor_id`) VALUES (?,?,?,?,?,?,?,?,?,?)';
+    conn.query(sql, [req.body[i].user_id, req.body[i].user_name, req.body[i].product_id, req.body[i].product_name, req.body[i].product_price, req.body[i].product_qty, req.body[i].day, 'Not Paid', req.body[i].product_photo, req.body[i].vendor_id], (error, result) => {
       if (error) {
         console.log(error.message);
       } else {
@@ -212,7 +213,10 @@ router.post("/ratings", validateReview, ratings);
 router.get("/review/:product_id", review);
 
 // User Add Cart
-router.post("/addcart", addCart);
+router.post("/addcart/:product_id", addCart);
+
+
+router.post("/getvendor/:product_id", getVendor);
 
 // User View Cart
 router.get("/viewcart/:user_id", viewCart);

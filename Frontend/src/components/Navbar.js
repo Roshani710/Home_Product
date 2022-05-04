@@ -20,7 +20,7 @@ const Navbar = () => {
   }, []);
 
   function Logout() {
-    localStorage.clear();
+    localStorage.removeItem('token');
     navigate(`/`);
   }
 

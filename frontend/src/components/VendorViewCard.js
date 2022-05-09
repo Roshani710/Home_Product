@@ -33,11 +33,11 @@ const navigate =useNavigate()
         getProductsData()
         result = await result.json();
         console.log(result)
+        window.location.reload()
     }
 
     function nextpage(product_id){
         // alert(product_id)
-
         navigate(`/updateproduct/${product_id}`)
     }
 

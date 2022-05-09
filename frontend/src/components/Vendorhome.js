@@ -212,6 +212,7 @@ function Vendorhome() {
           );
         })}
       </div>
+    
     </>
   );
 }

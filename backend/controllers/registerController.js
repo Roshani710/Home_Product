@@ -22,35 +22,6 @@ exports.register = async(req,res,next) => {
 
     try{
 
-        const hashPass = await bcrypt.hash(req.body.user_password, 12);
-        const IsVerified = "true";
-        const resetToken = "";
-        
-
-        const [rows] = await conn.execute('INSERT INTO `home_user`(`user_name`,`user_email`,`user_password`,`user_contact`,`user_address`,`user_role`,`IsVerified`,`resetToken`) VALUES(?,?,?,?,?,?,?,?)',[
-            req.body.user_name,
-            req.body.user_email,
-            hashPass,
-            req.body.user_contact,
-            req.body.user_address,
-            req.body.user_role,
-            IsVerified,
-            resetToken
-
-        ]);
-
-        if (rows.affectedRows === 1) {
-            return res.status(201).json({ status: 1,
-                message: "Inserted!!",
-            });
-        }
-
-       if (row.length > 0) {
-            return res.status(208).json({status: 1,
-                message: "Exists!!",
-            });
-        }
-
         const [row] = await conn.execute(
             "SELECT `user_email` FROM `home_user` WHERE `user_email`=?",
             [req.body.user_email],
@@ -79,7 +50,35 @@ exports.register = async(req,res,next) => {
                 console.log("sent email")
             }
         })
+
+        if (row.length > 0) {
+            return res.status(208).json({status: 1,
+                message: "Exists!!",
+            });
+        }
+
+        const hashPass = await bcrypt.hash(req.body.user_password, 12);
+        const IsVerified = "true";
+        const resetToken = "";
         
+
+        const [rows] = await conn.execute('INSERT INTO `home_user`(`user_name`,`user_email`,`user_password`,`user_contact`,`user_address`,`user_role`,`IsVerified`,`resetToken`) VALUES(?,?,?,?,?,?,?,?)',[
+            req.body.user_name,
+            req.body.user_email,
+            hashPass,
+            req.body.user_contact,
+            req.body.user_address,
+            req.body.user_role,
+            IsVerified,
+            resetToken
+
+        ]);
+
+        if (rows.affectedRows === 1) {
+            return res.status(201).json({ status: 1,
+                message: "Inserted!!",
+            });
+        }  
     }catch(err){
         next(err);
     }

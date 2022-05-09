@@ -64,7 +64,7 @@ exports.resetPassword = async (req, res, next) => {
             }
         }
         catch (err) {
-            return res.status(404).json({ status: 0, message: "Invalid Email" })
+            return res.status(404).json({ status: 0, message: "Not Exists!!" })
 
             }
         });

@@ -42,7 +42,7 @@ const addProduct = async (req, res) => {
                 req.body.product_price,
                 req.body.product_discount,
                 req.files[0].path,
-                'Not Paid'
+                'In Stock'
                 
             ],
             (error, results) => {

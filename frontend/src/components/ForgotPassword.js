@@ -11,11 +11,13 @@ function ForgotPassword() {
   //   e.preventDefault();
   //   navigate("/resetpassword");
   // };
+
   const forgotPassword=()=>{
     axios.post('http://localhost:3009/resetPassword',
     {
         user_email:user_email
     })
+    
     // }).then(()=>{
     //     //alert("Successfully Sent to Your Email Id, Please Check!")
     //     navigate("/resetpassword")

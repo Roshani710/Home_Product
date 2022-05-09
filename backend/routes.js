@@ -160,9 +160,25 @@ router.post("/changeStatus", (req, res) => {
     })
 })
 
+router.post("/changeProductStatus", (req, res) => {
+    product_id=req.body.product_id
+    let sql= `UPDATE home_product SET product_status='Out of Stock' WHERE product_id=${product_id}`
+    conn.query(sql,(err,result)=>{
+        if(err)
+        {
+            console.log(err)
+        }
+        else{
+           
+            res.send({msg:"Updated Successfully"})
+
+        }
+    })
+})
+
 router.get('/viewProduct/:id', ViewProductById)
 router.delete('/deleteProduct/:id', DeleteProduct)
-router.put('/updateProduct/:id', UpdateProduct)
+router.post('/updateProduct/:id', UpdateProduct)
 router.get("/orderhistory/:user_id", OrderHistorybyId)
 // User Product Review
 

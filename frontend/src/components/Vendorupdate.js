@@ -65,14 +65,15 @@ function Vendorupdate() {
     loadProduct();
   }, []);
 
-  async function onSubmit() {
+ const onSubmit = async() => {
+  // async function onSubmit() {
     //alert(product_id)
     // console.log("enter", product_id);
     // console.log("===============================");
     // console.log(product);
     // console.log("==============================");
     await axios
-      .put(
+      .post(
         `http://localhost:3009/updateProduct/${product_id}`,
 
         {
@@ -97,7 +98,8 @@ function Vendorupdate() {
     // })
     //navigate("/viewproduct")
     //alert(id)
-  }
+  };
+
 
   return (
     <>

@@ -121,6 +121,7 @@ import VendorviewCard from "./VendorViewCard";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import { VendorNav } from "./VendorNav";
+import Footer from "./Footer";
 
 function Vendorhome() {
   const [products, setProducts] = useState([]);
@@ -136,8 +137,8 @@ function Vendorhome() {
 
   console.log(role);
   if (role != "Vendor") {
-        alert("You are not autherized for this");
-        navigate("/");
+    alert("You are not autherized for this");
+    navigate("/");
   }
 
   async function getProductsData() {
@@ -182,37 +183,38 @@ function Vendorhome() {
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="product-filters">
-            <ul>
-              <li class="active" onClick={nextpage}>
-                Add Product
-              </li>
-            </ul>
+      
+        <div class="row">
+          <div class="col-md-12">
+            <div class="product-filters">
+              <ul>
+                <li class="active" onClick={nextpage}>
+                  Add Product
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="row product-lists">
-        {products.map((val) => {
-          return (
-            <>
-              <VendorviewCard
-                // key={ind}
-                product_id={val.product_id}
-                product_name={val.product_name}
-                product_description={val.product_description}
-                product_discount={val.product_discount}
-                product_price={val.product_price}
-                product_photo={val.product_photo}
-              />
-            </>
-          );
-        })}
-      </div>
-    
+        <div className="row product-lists">
+          {products.map((val) => {
+            return (
+              <>
+                <VendorviewCard
+                  // key={ind}
+                  product_id={val.product_id}
+                  product_name={val.product_name}
+                  product_description={val.product_description}
+                  product_discount={val.product_discount}
+                  product_price={val.product_price}
+                  product_photo={val.product_photo}
+                />
+              </>
+            );
+          })}
+        </div>
+
+      <Footer />
     </>
   );
 }

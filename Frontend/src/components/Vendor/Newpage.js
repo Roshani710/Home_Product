@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Newpage = () => {
-  const [products, setProducts] = useState([])
+ let navigate= useNavigate()
+ const role = localStorage.getItem("Ecomrole")
+ 
+ console.log(role)
+ if(role != 'Vendor')
+ {
+     window.alert("You are not autherized for this")
+     navigate('/')
+ }
+const [products, setProducts] = useState([])
 const u_id=localStorage.getItem("EcomUserId")
 const vendor_id=localStorage.getItem("EcomUserId")
   useEffect(() => {

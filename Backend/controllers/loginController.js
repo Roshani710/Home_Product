@@ -13,7 +13,7 @@ exports.login = async (req, res, next) => {
     try {
         const [row] = await conn.execute(
             "SELECT * FROM `home_user` WHERE `user_email`=?",
-            [req.body.user_email]
+            [req.body.user_-email]
         );
 
         if (row.length === 0) {

@@ -103,7 +103,7 @@ function Login() {
                         name="password"
                         id="password"
                         value={user_password}
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                         onChange={(e) => {
                           setPassword(e.target.value);
                         }}

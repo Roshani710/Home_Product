@@ -2,19 +2,12 @@
 // import { useNavigate } from 'react-router-dom'
 // // import Header from './Header'
 
-
-
-
 // function CardProduct({ product_id, product_name, product_price, product_photo }) {
 //     const nevigate = useNavigate
 //     return (
 //         <>
 //             {/* <Header /> */}
-            
-            
 
-      
-                    
 //                         <div class="col-lg-4 col-md-6 text-center strawberry">
 //                             <div class="single-product-item">
 //                                 <div class="product-image">
@@ -26,11 +19,6 @@
 //                                 <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 //                             </div>
 //                         </div>
-
-                
-
-
-
 
 //         </>
 //     )
@@ -58,7 +46,7 @@ function CardProduct({
   return (
     <>
       <div class="col-lg-4 col-md-6 text-center strawberry">
-        <div class="single-product-item">
+        <div class="single-product-item card_size_user">
           <div class="product-image">
             <a>
               <img
@@ -75,7 +63,6 @@ function CardProduct({
           <a class="cart-btn mx-2" onClick={() => nextpage(product_id)}>
             <i class="fa fa-address-card"></i> View Detail
           </a>
-
         </div>
       </div>
     </>

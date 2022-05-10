@@ -213,8 +213,7 @@ function Vendorhome() {
             );
           })}
         </div>
-
-      <Footer />
+        <Footer />
     </>
   );
 }

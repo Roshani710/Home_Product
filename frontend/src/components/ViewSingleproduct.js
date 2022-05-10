@@ -74,7 +74,16 @@ function ViewSingleProduct() {
 
     const res = axios
       .post(`http://localhost:3009/addCart/${product_id}`, cartData)
-      .then(nevigate("/viewproduct"));
+      .then((response) => {
+        //console.log(response.data.message)
+        if(response.data.message === "Exists!!"){
+          alert("It's already avaliable in cart!!");
+          nevigate("/viewproduct");
+        }
+        else{
+        nevigate("/viewproduct");
+        }
+      });
   };
 
   const getData = async () => {
@@ -178,6 +187,16 @@ function ViewSingleProduct() {
                   Price : $<strong>{detdata[0].product_price}.00</strong>{" "}
                 </p>
                 <p>Description : {detdata[0].product_description}</p>
+                <p
+                  style={{
+                    color:
+                      detdata[0].product_status === "Out of Stock"
+                        ? "red"
+                        : "green",
+                  }}
+                >
+                  {detdata[0].product_status}
+                </p>
                 <div class="single-product-form">
                   <form onSubmit={onSub}>
                     <input type="hidden" value={detdata[0].product_id} />
@@ -201,6 +220,11 @@ function ViewSingleProduct() {
                         type="submit"
                         className="cart-btn"
                         value="addcart"
+                        disabled={
+                          detdata[0].product_status === "Out of Stock"
+                            ? true
+                            : false
+                        }
                       />
                     </div>
                   </form>
@@ -293,7 +317,7 @@ function ViewSingleProduct() {
           </button>
         </div>
       </section>
-     
+
       <div>
         <center>
           <a className="carts-btn" onClick={review}>

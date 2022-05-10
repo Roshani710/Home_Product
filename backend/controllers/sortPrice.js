@@ -7,10 +7,11 @@ exports.sortPrice = async (req, res) => {
         let sqll = `select * from home_product WHERE product_price < 10`;
         conn.query(sqll, (err, result) => {
             if (err) {
+                return res.status(404).send(err)
                 console.log(err)
             }
             else {
-                res.send(result)
+                return res.status(200).send(result)
             }
         })
 
@@ -19,10 +20,11 @@ exports.sortPrice = async (req, res) => {
         let sqll = `select * from home_product WHERE product_price >=10 && product_price <= 50`;
         conn.query(sqll, (err, result) => {
             if (err) {
+                return res.status(404).send(err)
                 console.log(err)
             }
             else {
-                res.send(result)
+                return res.status(200).send(result)
             }
         })
 
@@ -31,10 +33,11 @@ exports.sortPrice = async (req, res) => {
         let sqll = `select * from home_product WHERE product_price >= 50`;
         conn.query(sqll, (err, result) => {
             if (err) {
+                return res.status(404).send(err)
                 console.log(err)
             }
             else {
-                res.send(result)
+                return res.status(200).send(result)
             }
         })
     }

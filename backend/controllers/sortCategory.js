@@ -8,10 +8,11 @@ exports.sortCategory = async (req, res) => {
         let sqll = `select * from home_product WHERE product_category = '1'`;
         conn.query(sqll, (err, result) => {
             if (err) {
+                return res.status(404).send(err)
                 console.log(err) 
             }
             else {
-                res.send(result)
+                return res.status(200).send(result)
             }
         })
 
@@ -20,10 +21,11 @@ exports.sortCategory = async (req, res) => {
         let sqll =  `select * from home_product WHERE product_category = "2"`;
         conn.query(sqll, (err, result) => {
             if (err) {
+                return res.status(404).send(err)
                 console.log(err)
             }
             else {
-                res.send(result)
+                return res.status(200).send(result)
             }
         })
 
@@ -32,10 +34,11 @@ exports.sortCategory = async (req, res) => {
         let sqll =  `select * from home_product WHERE product_category = "3"`;
         conn.query(sqll, (err, result) => {
             if (err) {
+                return res.status(404).send(err)
                 console.log(err)
             }
             else {
-                res.send(result)
+                return res.status(200).send(result)
             }
         })
     }
@@ -43,10 +46,11 @@ exports.sortCategory = async (req, res) => {
         let sqll =  `select * from home_product WHERE product_category = "4"`;
         conn.query(sqll, (err, result) => {
             if (err) {
+                return res.status(404).send(err)
                 console.log(err)
             }
             else {
-                res.send(result)
+                return res.status(200).send(result)
             }
         })
     }

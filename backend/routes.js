@@ -27,6 +27,7 @@ const {
 } = require("./controllers/productViewController");
 const { OrderHistorybyId } = require("./controllers/orderhistorybyid");
 const validateReview = require("./middleware/validateReview");
+const valiadteCart = require("./middleware/validateCart");
 
 const {
   ratings,
@@ -195,26 +196,30 @@ router.post("/orders", (req, res) => {
 
 router.post("/changeStatus", (req, res) => {
   product_id = req.body.product_id;
-    let sql = `UPDATE orders SET payment_status='Paid' WHERE product_id=${product_id}`;
+  for(let i=0; i<req.body.product_id.length; i++){
+    let sql = `UPDATE orders SET payment_status='Paid' WHERE product_id=${product_id[i]}`;
     conn.query(sql, (err, result) => {
       if (err) {
         console.log(err);
       } else {
-        res.send({ msg: "Updated Successfully" });
+        return res.status(200).send({ msg: "Updated Successfully" });
       }
     });
+  }
 });
 
 router.post("/changeProductStatus", (req, res) => {
   product_id = req.body.product_id;
-  let sql = `UPDATE home_product SET product_status='Out of Stock' WHERE product_id=${product_id}`;
+  for(let i=0; i<req.body.product_id.length; i++){
+  let sql = `UPDATE home_product SET product_status='Out of Stock' WHERE product_id=${product_id[i]}`;
   conn.query(sql, (err, result) => {
     if (err) {
       console.log(err);
     } else {
-      res.send({ msg: "Updated Successfully" });
+      return res.status(200).send({ msg: "Updated Successfully" });
     }
   });
+}
 });
 
 router.get("/viewProduct/:id", ViewProductById);
@@ -233,7 +238,7 @@ router.post("/ratings", validateReview, ratings);
 router.get("/review/:product_id", review);
 
 // User Add Cart
-router.post("/addcart/:product_id", addCart);
+router.post("/addcart/:product_id", valiadteCart, addCart);
 
 // User View Cart
 router.get("/viewcart/:user_id", viewCart);

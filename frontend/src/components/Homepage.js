@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState} from "react";
 import Footer from "./Footer";
 // import "./style.css";
 // import { Link } from 'react-router-dom'
@@ -6,12 +6,32 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Slider from "./Slider";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 function Homepage() {
+  const [products, setProducts] = useState([])
   const navigate = useNavigate();
+
   function shop() {
     navigate("/viewproduct");
   }
+  useEffect(() => {
+    //console.log("test")
+    getProductsData()
+}, [])
+
+async function getProductsData() {
+    const { data } = await axios.get('http://localhost:3009/viewProduct', {
+        // headers: {
+        //     token:window.localStorage.getItem('token')
+        // }
+    })
+    setProducts(data.products)
+   
+}
+
+console.log(products)
+
 
   return (
     <>
@@ -76,48 +96,23 @@ function Homepage() {
           </div>
 
           <div className="row">
+            {
+              products.map((val) =>{
             <div className="col-lg-4 col-md-6 text-center">
               <div className="single-product-item">
                 <div className="product-image">
-                  <a href="single-product.html">
-                    <img src="/assets/img/products/chair1.jpg" alt="" />
+                  <a>
+                    <img src={"http://localhost:3009/" + val.product_photo} alt="" />
                   </a>
                 </div>
-
-                <p className="product-price"> chair </p>
+                <p className="product-price"> {val.product_price} </p>
                 <a className="cart-btn" onClick={shop}>
                   <i className="fas fa-shopping-cart"></i> Buy Now
                 </a>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 text-center">
-              <div className="single-product-item">
-                <div className="product-image">
-                  <a href="single-product.html">
-                    <img src="/assets/img/products/chair1.jpg" alt="" />
-                  </a>
-                </div>
-
-                <p className="product-price"> chair </p>
-                <a className="cart-btn" onClick={shop}>
-                  <i className="fas fa-shopping-cart"></i> Buy Now
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 text-center">
-              <div className="single-product-item">
-                <div className="product-image">
-                  <a href="single-product.html">
-                    <img src="/assets/img/products/chair1.jpg" alt="" />
-                  </a>
-                </div>
-
-                <p className="product-price"> chair </p>
-                <a className="cart-btn" onClick={shop}>
-                  <i className="fas fa-shopping-cart"></i> Buy Now
-                </a>
-              </div>
-            </div>
+            })
+          }
           </div>
           <div style={{paddingTop:"70px"}}>
             <center>

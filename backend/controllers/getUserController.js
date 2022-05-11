@@ -18,18 +18,18 @@ const Userdetailbyid = async (req, res) => {
 
 const Updateaddress = async (req, res) => {
   const data = [
-    req.body.user_name,
-    req.body.user_contact,
+    // req.body.user_name,
+    // req.body.user_contact,
     req.body.user_address,
     req.params.user_id,
   ];
 
   console.log("++++++++++++++++++++++++++")
-
   console.log(data)
   console.log("++++++++++++++++++++++++++")
   conn.execute(
-    "UPDATE home_user SET user_name=?, user_contact=? ,user_address=? WHERE user_id=?",
+    // "UPDATE home_user SET user_name=?, user_contact=? ,user_address=? WHERE user_id=?",
+    "UPDATE home_user SET user_address=? WHERE user_id=?",
     data,
     
     (err, results) => {

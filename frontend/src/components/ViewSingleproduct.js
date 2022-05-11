@@ -148,7 +148,7 @@ function ViewSingleProduct() {
   }
 
   if (!detdata.length) {
-    return <h1>Loading..</h1>;
+    return <h4>Loading..</h4>;
   }
 
   return (

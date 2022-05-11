@@ -99,9 +99,9 @@ function ViewProduct(req, res) {
                     <div class="product-filters">
                         <ul >
                             {/* <li class="active" data-filter="*">All</li> */}
-                            <li onClick={sortHandel}  value="10">less then 10</li>
-                            <li  onClick={sortHandel} value="1050">10-50</li>
-                            <li  onClick={sortHandel} value="50">50</li>
+                            <li onClick={sortHandel}  value="50">less then 50</li>
+                            <li  onClick={sortHandel} value="50100">50-100</li>
+                            <li  onClick={sortHandel} value="100">100</li>
                             {/* <li >Kitchen</li> */}
 
                         </ul>

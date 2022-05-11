@@ -46,7 +46,7 @@ function CardProduct({
   return (
     <>
       <div class="col-lg-4 col-md-6 text-center strawberry">
-        <div class="single-product-item card_size_user">
+        <div class="single-product-item">
           <div class="product-image">
             <a>
               <img

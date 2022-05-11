@@ -10,9 +10,9 @@ function Payment() {
   const [cart, setCart] = useState([]);
 
   const [userData, setUserData] = useState([]);
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
   const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState(0);
+  // const [phone, setPhone] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
   //   Authentication
@@ -95,8 +95,8 @@ function Payment() {
         )}`,
 
         {
-          user_name: name,
-          user_contact: phone,
+          // user_name: name,
+          // user_contact: phone,
           user_address: address,
           //product_photo:product_photo
         }
@@ -226,6 +226,7 @@ function Payment() {
                                     onChange={(e) => {
                                       setName(e.target.value);
                                     }}
+                                    readOnly
                                   />
                                 </p>
                                 <p>
@@ -259,6 +260,7 @@ function Payment() {
                                     onChange={(e) => {
                                       setPhone(e.target.value);
                                     }}
+                                    readOnly
                                   />
                                 </p>
                               </form>

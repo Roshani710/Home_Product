@@ -50,7 +50,7 @@ function VendorviewCard({
       <div
         className="col-lg-4 col-md-6 text-center strawberry"
       >
-        <div className="single-product-item card_size" >
+        <div className="single-product-item" >
           <div className="product-image">
             <a>
               <img

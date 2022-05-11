@@ -15,22 +15,23 @@ function Homepage() {
   function shop() {
     navigate("/viewproduct");
   }
-  useEffect(() => {
-    //console.log("test")
-    getProductsData()
-}, [])
 
-async function getProductsData() {
-    const { data } = await axios.get('http://localhost:3009/viewProduct', {
-        // headers: {
-        //     token:window.localStorage.getItem('token')
-        // }
-    })
-    setProducts(data.products)
+//   useEffect(() => {
+//     //console.log("test")
+//     getProductsData()
+// }, [])
+
+// async function getProductsData() {
+//     const { data } = await axios.get('http://localhost:3009/viewProduct', {
+//         // headers: {
+//         //     token:window.localStorage.getItem('token')
+//         // }
+//     })
+//     setProducts(data.products)
    
-}
+// }
 
-console.log(products)
+// console.log(products)
 
 
   return (
@@ -96,7 +97,7 @@ console.log(products)
           </div>
 
           <div className="row">
-            {
+            {/* {
               products.map((val) =>{
             <div className="col-lg-4 col-md-6 text-center">
               <div className="single-product-item">
@@ -112,8 +113,9 @@ console.log(products)
               </div>
             </div>
             })
-          }
+          } */}
           </div>
+
           <div style={{paddingTop:"70px"}}>
             <center>
               <a className="carts-btn" onClick={shop}>

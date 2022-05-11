@@ -3,8 +3,8 @@ const conn = require('../dbConnection')
 
 exports.sortPrice = async (req, res) => {
     const price = req.params.product_price;
-    if (price === '10') {
-        let sqll = `select * from home_product WHERE product_price < 10`;
+    if (price === '50') {
+        let sqll = `select * from home_product WHERE product_price < 50`;
         conn.query(sqll, (err, result) => {
             if (err) {
                 return res.status(404).send(err)
@@ -16,8 +16,8 @@ exports.sortPrice = async (req, res) => {
         })
 
     }
-    else if (price === '1050') {
-        let sqll = `select * from home_product WHERE product_price >=10 && product_price <= 50`;
+    else if (price === '50100') {
+        let sqll = `select * from home_product WHERE product_price >=50 && product_price <= 100`;
         conn.query(sqll, (err, result) => {
             if (err) {
                 return res.status(404).send(err)
@@ -29,8 +29,8 @@ exports.sortPrice = async (req, res) => {
         })
 
     }
-    else if (price === '50') {
-        let sqll = `select * from home_product WHERE product_price >= 50`;
+    else if (price === '100') {
+        let sqll = `select * from home_product WHERE product_price >= 100`;
         conn.query(sqll, (err, result) => {
             if (err) {
                 return res.status(404).send(err)

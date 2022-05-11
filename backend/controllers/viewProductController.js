@@ -26,7 +26,7 @@ const ViewProductByUserId = async (req, res) => {
 
 const randProduct = async (req, res) => {
     const product_id = req.params.product_id;
-    let query = "SELECT * FROM home_product ORDER BY RAND() LIMIT 3"
+    let query = "SELECT * FROM home_product WHERE product_status = 'In Stock' ORDER BY RAND() LIMIT 3"
     conn.query(query, [product_id], (err, result) => {
         if(err) {
             console.log(err)

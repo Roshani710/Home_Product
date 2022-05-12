@@ -154,7 +154,7 @@ function Payment() {
     const res = await axios
       .post(`http://localhost:3009/orders`, cart)
       .then((response) => {
-        console.log(response);
+        console.log("Payment", response);
       })
       .then(navigate("/pay"));
   };

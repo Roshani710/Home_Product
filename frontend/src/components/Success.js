@@ -1,13 +1,21 @@
 import React, {useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
+import axios from "axios";
 
 export default function Success() {
     const navigate = useNavigate();
+
+    //Clear all cart
+    axios.delete(`http://localhost:3009/deleteAll/${localStorage.getItem('EcomUserId')}`).catch = (error) => {
+      console.log("ERROR", error)
+    }
+
     useEffect(() =>{
         setTimeout(() => navigate('/home'), 2000)
        
     })
+
   return (
     <>
       <div className="container" style={{

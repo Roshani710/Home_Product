@@ -178,6 +178,17 @@ function ViewSingleProduct() {
                   Price : $<strong>{detdata[0].product_price}.00</strong>{" "}
                 </p>
                 <p>Description : {detdata[0].product_description}</p>
+                <p
+                  style={{
+                    color:
+                      detdata[0].product_status === "Out of Stock"
+                        ? "red"
+                        : "green",
+                  }}
+                >
+                  {detdata[0].product_status}
+                </p>
+                <p>Description : {detdata[0].product_description}</p>
                 <div class="single-product-form">
                   <form onSubmit={onSub}>
                     <input type="hidden" value={detdata[0].product_id} />
@@ -201,6 +212,11 @@ function ViewSingleProduct() {
                         type="submit"
                         className="cart-btn"
                         value="addcart"
+                        disabled={
+                          detdata[0].product_status === "Out of Stock"
+                            ? true
+                            : false
+                        }
                       />
                     </div>
                   </form>

@@ -11,7 +11,8 @@ function OrderHistory() {
   const [data, setData] = useState([]);
   const productID = [];
   const { user_id } = useParams();
-  console.log(user_id);
+  
+  //console.log(user_id);
   // if (!window.localStorage.getItem("token")) {
   //   window.alert("You are not Autherized For this");
   //   nevigate("/");
@@ -29,9 +30,15 @@ function OrderHistory() {
     console.log("data1 data.data.products===>", data.datas);
     //console.log("data2 data.data===>",data.datas)
     console.log("data3 data===>", data);
+    
+    
+    
   };
+  
 
   console.log("data", data);
+
+  
 
   return (
     <>
@@ -61,6 +68,7 @@ function OrderHistory() {
                       <tr class="table-head-row">
                         {/* <th class="product-remove"></th> */}
                         {/* <th class="product_id">#</th> */}
+                        <th class="product-image">Product ID</th>
                         <th class="product-image">Product Image</th>
                         <th class="product-name">Name</th>
                         <th class="product-price">Price</th>
@@ -72,7 +80,7 @@ function OrderHistory() {
                     <tbody>
                       {data.map((product) => (
                         <tr>
-                          {/* <td>{product.product_id}</td> */}
+                           <td>{product.product_id}</td>
                           <td class="product-image">
                             <img
                               src={
@@ -91,7 +99,8 @@ function OrderHistory() {
                           </td>
                           {/* <td><i onClick={() => deleteoncart(user_id,product.product_id)} class="fa fa-trash" /></td> */}
                           <td class="product-price">
-                            <Link to="/ratings">Add Review</Link>
+                          
+                            <Link to={"/ratings/"+product.product_id}>Add Review</Link>
                           </td>
 
                           {/* <td><i onClick={() => deleteoncart(user_id,product.product_id)} class="fa fa-trash" /></td> */}

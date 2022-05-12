@@ -122,6 +122,30 @@ const deleteCart = async (req, res) => {
     });
 }
 
+const deleteAll = async(req, res) => {
+    const user_id = req.params.user_id;
+  
+    const query = "DELETE FROM home_cart WHERE (user_id = ?)"; 
+    conn.query(query,[user_id], (err, result) => {
+        console.log(err)
+        if (err) {
+            console.log(err)
+            return res.status(404).json({
+                status: 0,
+                message: err,   
+            });
+        }
+        else
+        {
+            return res.status(200).json({
+                status: 1,
+                message: "Successfully deleted",
+            }); 
+        }
+    });
+}
+
+
 const countCart = async (req, res) => {
     const user_id = req.params.user_id;
 
@@ -145,4 +169,4 @@ const countCart = async (req, res) => {
     })
 }
 
-module.exports = { addCart, viewCart, deleteCart, countCart }
+module.exports = { addCart, viewCart, deleteCart, countCart,deleteAll }

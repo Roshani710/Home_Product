@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FaStar } from "react-icons/fa";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "./Navbar"
 import Footer from "./Footer";
 
@@ -11,6 +11,10 @@ const colors = {
 };
 
 const Ratings = () => {
+  let product_id=useParams()
+  // console.log("1",Object.values[0](product_id))
+  // let idd = Object.values(product_id)[0]
+    
   const navigate = useNavigate();
   // Authentication
   const timeout = useRef(null);
@@ -51,11 +55,11 @@ const Ratings = () => {
       alert("Please give stars!!");
     } else {
       axios
-        .post("http://localhost:3009/ratings", {
+        .post(`http://localhost:3009/ratings/${Object.values(product_id)[0]}`, {
           review_description: description,
           review_star: currentValue,
           user_id: id,
-          product_id: pId,
+          product_id: Object.values(product_id)[0],
           user_name: uName,
         })
         .then((response) => {

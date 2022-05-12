@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react";
+import React, { useEffect, useRef } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useNavigate } from "react-router";
 import axios from "axios";
@@ -10,7 +10,21 @@ export default function Pay() {
   console.log(amount);
   const email = localStorage.getItem("EcomEmail");
   const navigate = useNavigate();
-  
+  let array = [];
+
+  // orders
+  axios.get(`http://localhost:3009/viewcart/${localStorage.getItem('EcomUserId')}`).then((response) => {
+    console.log("Response", response)
+    console.log("Res", response.data.response[0])
+    for(let i=0; i<response.data.response.length; i++){
+      console.log("ID", response.data.response[i].product_id)
+      array.push(response.data.response[i].product_id);
+     
+    }
+    console.log("Array", array);
+    
+  })
+
   // Authentication
   const timeout = useRef(null);
   const checkAuth = () => {
@@ -37,58 +51,54 @@ export default function Pay() {
   }, []);
 
   return (
-      <>
-    <Navbar/>
+    <>
+      <Navbar />
       <div>
-      
-    <div
-      className="container"
-      style={{
-        textAlign: "center",
-        height: "250px",
-        paddingTop: "15rem",
-      }}
-    >
-      <PayPalScriptProvider options={{ "client-id": "test" }}>
-        <PayPalButtons
-          createOrder={(data, actions) => {
-            return actions.order.create({
-              purchase_units: [
-                {
-                  amount: {
-                    currency_code: "USD",
-                    value: amount,
-                  },
-                },
-              ],
-            });
+
+        <div
+          className="container"
+          style={{
+            textAlign: "center",
+            height: "250px",
+            paddingTop: "15rem",
           }}
-          onApprove={(data, actions) => {
-            return actions.order.capture().then((details) => {
+        >
+          <PayPalScriptProvider options={{ "client-id": "test" }}>
+            <PayPalButtons
+              createOrder={(data, actions) => {
+                return actions.order.create({
+                  purchase_units: [
+                    {
+                      amount: {
+                        currency_code: "USD",
+                        value: amount,
+                      },
+                    },
+                  ],
+                });
+              }}
+              onApprove={(data, actions) => {
+                return actions.order.capture().then((details) => {
 
+                  //payment_status update to paid
+                  axios.post("http://localhost:3009/changeStatus", {
+                    product_id: array,
+                  });
 
-              //payment_status update to paid
-              axios.post("http://localhost:3009/changeStatus", {
-                product_id: localStorage.getItem("productId"),
-              });
+                  // status update to paid in product table
+                  axios.post("http://localhost:3009/changeProductStatus", {
+                    product_id: array,
+                  });
 
-              // status update to paid in product table
-              axios.post("http://localhost:3009/changeProductStatus", {
-                product_id: localStorage.getItem("productId"),
-              });
+                  navigate("/success");
 
-              //Clear all cart
-              axios.delete(`http://localhost:3009/deleteAll/${localStorage.getItem('EcomUserId')}`)
-
-              navigate("/success");
-
-              window.location.reload();
-            });
-          }}
-        />
-      </PayPalScriptProvider>
-    </div>
-    </div>
+                  window.location.reload();
+                });
+              }}
+            />
+          </PayPalScriptProvider>
+        </div>
+      </div>
     </>
   );
 }

@@ -23,7 +23,7 @@ import Ratings from "./components/Ratings";
 import Review from "./components/Review";
 import Reviewslider from "./components/Reviewslider";
 import Vendorviewuser from "./components/Vendorviewuser"
-import WishList from "./components/WishList";
+// import WishList from "./components/WishList";
 
 
 function App() {
@@ -55,7 +55,7 @@ function App() {
           <Route path="/vnav" element={<VendorNav />} />
           <Route path='/slireview' element={<Reviewslider />} />
           <Route path="/viewusers/:vendor_id" element={<Vendorviewuser/>}/>
-          <Route path="/wishlist" element={<WishList />} />
+          {/* <Route path="/wishlist" element={<WishList />} /> */}
 
         </Routes>
       </Router>

@@ -127,10 +127,15 @@ function Navbar() {
                     </Link>
                   </li>
                   <li>
+                    <Link to="/wishlist">
+                      <i className="fa fa-heart"></i>
+                    </Link>
+                  </li>
+                  <li>
                     <Link to="/">
                       <i className="fas fa-sign-out-alt"></i>
                     </Link>
-                  </li>
+                  </li> 
                   <ll>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <a className="bordered-btn" type="submit" onClick={order}>

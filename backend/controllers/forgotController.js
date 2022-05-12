@@ -36,7 +36,7 @@ function sendEmail(user_email, resetToken) {
     });
 
 }
-exports.resetPassword = async (req, res, next) => {
+exports.resetPassword = async (req, res) => {
     var user_email = req.body.user_email;
     conn.query('SELECT * FROM home_user WHERE user_email ="' + user_email + '"', function (err, result) {
         if (err) throw err;

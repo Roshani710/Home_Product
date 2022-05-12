@@ -29,6 +29,7 @@ function OrderHistory() {
     console.log("data1 data.data.products===>", data.datas);
     //console.log("data2 data.data===>",data.datas)
     console.log("data3 data===>", data);
+    console.log("Id", data.datas[0].product_id)
   };
 
   console.log("data", data);

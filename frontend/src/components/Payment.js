@@ -223,9 +223,9 @@ function Payment() {
                                     type="text"
                                     placeholder="Name"
                                     defaultValue={userData[0].user_name}
-                                    onChange={(e) => {
-                                      setName(e.target.value);
-                                    }}
+                                    // onChange={(e) => {
+                                    //   setName(e.target.value);
+                                    // }}
                                     readOnly
                                   />
                                 </p>
@@ -257,9 +257,9 @@ function Payment() {
                                     type="tel"
                                     placeholder="Phone"
                                     defaultValue={userData[0].user_contact}
-                                    onChange={(e) => {
-                                      setPhone(e.target.value);
-                                    }}
+                                    // onChange={(e) => {
+                                    //   setPhone(e.target.value);
+                                    // }}
                                     readOnly
                                   />
                                 </p>

@@ -46,29 +46,30 @@ const Ratings = () => {
   const uName = localStorage.getItem("EcomUser");
 
   const submit = async (e) => {
-    e.preventDefault();
-    if (currentValue === 0) {
-      alert("Please give stars!!");
-    } else {
-      axios
-        .post("http://localhost:3009/ratings", {
-          review_description: description,
-          review_star: currentValue,
-          user_id: id,
-          product_id: pId,
-          user_name: uName,
-        })
-        .then((response) => {
-          //console.log("1", response.data);
-          if (response.data.message === "Exists!!") {
-            alert("Sorry, you've already done review!!");
-            navigate(`/orderhistory/${id}`);
-          } else {
-            alert("Success!");
-            navigate(`/orderhistory/${id}`);
-          }
-        });
-    }
+    alert("id", pId)
+    // e.preventDefault();
+    // if (currentValue === 0) {
+    //   alert("Please give stars!!");
+    // } else {
+    //   axios
+    //     .post("http://localhost:3009/ratings", {
+    //       review_description: description,
+    //       review_star: currentValue,
+    //       user_id: id,
+    //       product_id: pId,
+    //       user_name: uName,
+    //     })
+    //     .then((response) => {
+    //       //console.log("1", response.data);
+    //       if (response.data.message === "Exists!!") {
+    //         alert("Sorry, you've already done review!!");
+    //         navigate(`/orderhistory/${id}`);
+    //       } else {
+    //         alert("Success!");
+    //         navigate(`/orderhistory/${id}`);
+    //       }
+    //     });
+    // }
   };
 
   const handleClick = (value) => {

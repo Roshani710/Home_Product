@@ -202,7 +202,7 @@ router.post("/changeStatus", (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        return res.status(200).send({ msg: "Updated Successfully" });
+        res.send({ msg: "Updated Successfully" });
       }
     });
   }
@@ -216,7 +216,7 @@ router.post("/changeProductStatus", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      return res.status(200).send({ msg: "Updated Successfully" });
+      res.send({ msg: "Updated Successfully" });
     }
   });
 }
